@@ -8,7 +8,7 @@ All the credit here goes to the incredible team at Mailbox for changing the way 
 
 ## Setup:
 
-1. copy email_snooze.py to a directory where you want it to live (preferrably on a server somewhere, we rely on cron to run this every day)
+1. copy email_snooze.py to a directory where you want it to live (preferably on a server somewhere, we rely on cron to run this every day)
 
 2. edit the users = line (~5th to last line in the file) to have your email addresses, or at least the right number of emails you'd like to use with this (the actual strings are all relative to issued OAuth tokens in the app, so only used for debugging)
 
