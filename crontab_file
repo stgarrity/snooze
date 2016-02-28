@@ -1,0 +1,6 @@
+# m h  dom mon dow   command
+# NB: times are for a server running UTC but a user in PT, and don't handle DST right now'
+0 16 * * mon python <PATH_TO_FILE>/email_snooze.py nextweek
+0 18 * * sat python <PATH_TO_FILE>/email_snooze.py weekend
+0 16 * * *   python <PATH_TO_FILE>/email_snooze.py tomorrow
+0 4  * * *   python <PATH_TO_FILE>/email_snooze.py tonight
