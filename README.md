@@ -10,15 +10,17 @@ All the credit here goes to the incredible team at Mailbox for changing the way 
 
 1. copy email_snooze.py to a directory where you want it to live (preferrably on a server somewhere, we rely on cron to run this every day)
 
-2. edit the users = line (~5th to last line in the file) to have your email addresses, or at least the right number of emails you'd like to use with this (the actual strings are all relative to issued OAuth tokens in the app, so only used for debugging)
+2. run "pip install -r requirements.txt" to install the needed dependencies
 
-3. create a Google API app using the wizard here: https://console.developers.google.com/start/api?id=gmail
+3. edit the users = line (~5th to last line in the file) to have your email addresses, or at least the right number of emails you'd like to use with this (the actual strings are all relative to issued OAuth tokens in the app, so only used for debugging)
 
-4. create client credentials for that app of type "Other" and download the JSON into "client_secret.json" in the same directory as email_snooze.py
+4. create a Google API app using the wizard here: https://console.developers.google.com/start/api?id=gmail
 
-5. run "python email_snooze.py none --noauth_local_webserver" and follow the prompts to grant access to your email account(s)
+5. create client credentials for that app of type "Other" and download the JSON into "client_secret.json" in the same directory as email_snooze.py
 
-6. copy the lines from "crontab_file" into your crontab (using "crontab -e"), and making sure to insert the correct path to email_snooze.py (and potentially update your times)
+6. run "python email_snooze.py none --noauth_local_webserver" and follow the prompts to grant access to your email account(s)
+
+7. copy the lines from "crontab_file" into your crontab (using "crontab -e"), and making sure to insert the correct path to email_snooze.py (and potentially update your times)
 
 ## Known issues:
 
