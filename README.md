@@ -8,7 +8,7 @@ All the credit here goes to the incredible team at Mailbox for changing the way 
 
 ## Setup:
 
-1. copy email_snooze.py to a directory where you want it to live (preferrably on a server somewhere, we rely on cron to run this every day)
+1. copy email_snooze.py to a directory where you want it to live (preferably on a server somewhere, we rely on cron to run this every day)
 
 2. run "pip install -r requirements.txt" to install the needed dependencies
 
