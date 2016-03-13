@@ -1,0 +1,10 @@
+# git ignore file
+
+.*
+.#*
+\#*#
+*.pyc
+*~
+*.swp
+bypass_*
+private_*
