@@ -105,7 +105,8 @@ def run_snooze(service):
     for thread in threads:
         service.users().threads().modify(userId="me",
                                          id=thread['id'],
-                                         body={'addLabelIds': [inbox_label]}).execute()
+                                         body={'addLabelIds': [inbox_label],
+                                               'removeLabelIds': [search_label]}).execute()
 
 
 def snooze_for_user(username):

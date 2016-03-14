@@ -1,8 +1,12 @@
-I've been using [Mailbox](http://www.mailboxapp.com) since it was distributed via TestFlight and my email load broke the servers more than once ... and it quickly became an absolutely integratl part of my daily life, workflow, :sob: my family even :sob:. So obviously I was super sad to see it shut down last week. Rather than attempt to write a thoughtful, sentimental, or funny tribute (none of which I'm good at), I chose to memorialize my love for Mailbox in code.
+I've been using [Mailbox](http://www.mailboxapp.com) since it was distributed via TestFlight and my email load broke the servers more than once ... and it quickly became an absolutely integral part of my daily life, workflow, :sob: my family even :sob:. So obviously I was super sad to see it shut down last week. Rather than attempt to write a thoughtful, sentimental, or funny tribute (none of which I'm good at), I chose to memorialize my love for Mailbox in code.
 
 Aghast at having to live without snooze going forward (and yes, I played with all the other imitation clients, they just can't hold a candle to Mailbox), I hacked this together on a cab ride from Manhattan to Newark Airport. Enough people have asked me about it that I figured I'd share. It's still a work in progress (PRs welcome).
 
+(*updated*: Thanks @captbaritone for contributing the first PRs!)
+
 This in no way holds a candle to Mailbox. The UX is whatever second-rate email client you're using now (you just move the message to one of four labels, "Tonight", "Tomorrow", "This Weekend", "Next Week" (all nested under ".Snooze", and auto-created for you on first run), and it will pull it back into your inbox at the appropriate time), it doesn't allow custom scheduling, swipes don't work as well, there's no auto-swiping, etc. But at least it gives you snooze back!
+
+*Updated*: After using this for a few weeks, I decided to modify the behavior to remove the snooze label when it returns to your inbox, since I was finding myself a) accidentally archiving again without removing the label, and then seeing an unnecessary thread in my inbox again, and b) encouraging the lazy and counter-productive behavior of hitting snooze again numerous times on blocks of messages. If you don't like this behavior, let me know and I might add an option for it, or just remove the line with "removeLabelIds" (currently line 109), making sure to keep the .execute() at the end.
 
 All the credit here goes to the incredible team at Mailbox for changing the way so many of us looked at email, whether it was swipes, or unified inboxes, or snooze, or that [Violet Hour](http://www.markbernstein.org/Aug10/TheVioletHour.html) of the Inbox Zero image of the day. Thanks for all that you did, guys & gals!
 
@@ -27,10 +31,3 @@ All the credit here goes to the incredible team at Mailbox for changing the way 
 - scheduling via cron is ghetto
 - current scheduling doesn't handle DST well if your computer timezone is UTC
 - very little error handling, and it won't tell you if it fails
-- does not currently remove the snooze label, so if you just archive the message it will effectively snooze again. This is "by design" but I'm far from convinced it's the right design. If you'd like to change it, simply add 
-
-```
-"removeLabelIds": [search_label]
-```
-
-to the body dict of the thread .modify() call per https://developers.google.com/gmail/api/v1/reference/users/threads/modify
